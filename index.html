@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades ENEM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #12335A; /* Berkeley Blue */
+            --secondary-color: #1A2847; /* Space Cadet 2 */
+            --background-color: #0B2038; /* Oxford Blue */
+            --card-bg-color: rgba(28, 28, 56, 0.6); /* Space Cadet com transparência */
+            --border-color: #12335A; /* Berkeley Blue */
+            --text-color: #FFFFFF; /* Branco */
+            --heading-color: #12335A; /* Berkeley Blue */
+            --white-color: #FFFFFF; /* Branco */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            background-image: url('https://cdnb.artstation.com/p/assets/images/images/065/448/715/original/thiago-pedro-tweeter14.gif?1690385806');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Estilos do novo cabeçalho */
+        .site-header {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .site-header a {
+            font-size: 2em;
+            color: var(--white-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .site-header a:hover {
+            color: var(--primary-color);
+        }
+
+        .site-header h1 {
+            font-size: 1.5em;
+            color: var(--white-color);
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .header-separator {
+            width: 100%;
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.5); /* Usando uma cor mais clara para o separador */
+            margin-bottom: 40px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section-card {
+            background-color: var(--card-bg-color);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        /* Classes para a animação de scroll */
+        .hidden-card {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .visible-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-card h2 {
+            font-size: 2.5em;
+            color: var(--white-color);
+            margin-top: 0;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        #checklist .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 25px;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        #checklist .list-item:hover {
+            background-color: #2b3038;
+        }
+
+        /* Ajustes para o checkbox */
+        #checklist .list-item input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--white-color); /* Aumentado o contraste */
+            border-radius: 5px;
+            background-color: transparent;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0; 
+            margin-top: 6px; 
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        #checklist .list-item input[type="checkbox"]:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        #checklist .list-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            font-size: 18px;
+            color: #FFFFFF; /* Mantido em branco para contraste */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #checklist .list-item .content-group {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        #checklist .list-item label {
+            font-size: 1.2em;
+            cursor: pointer;
+            color: var(--white-color);
+        }
+
+        #checklist .list-item .description {
+            font-size: 0.9em;
+            color: #a0a0a0;
+            margin-top: 4px;
+        }
+
+        #checklist .list-item input[type="checkbox"]:checked + .content-group label {
+            color: #777;
+            text-decoration: line-through;
+        }
+
+        #checklist .list-item input[type="checkbox"]:checked + .content-group .description {
+            color: #777;
+        }
+
+        /* Ajustes para a seção de água */
+        .water-section h4 {
+            font-size: 1em;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: var(--white-color); /* Alterado para branco para maior contraste */
+        }
+
+        .water-section hr {
+            border: none;
+            height: 1px;
+            background-color: #444;
+            margin: 10px 0;
+        }
+
+        .water-calculator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .water-calculator input {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            width: 80px;
+            text-align: center;
+        }
+        
+        .water-calculator span {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--white-color); /* Alterado para branco para maior contraste */
+        }
+        
+        .water-calculator p {
+            margin: 0;
+            font-size: 1em;
+            color: var(--white-color);
+        }
+
+        /* Ajustes para o cronograma */
+        #cronograma {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .day-card {
+            background-color: rgba(15, 24, 36, 0.4); /* Rich Black com transparência */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(15, 24, 36, 0.6); /* Rich Black com transparência mais escura */
+        }
+        
+        .day-card.highlight {
+            background-color: rgba(18, 51, 90, 0.6); /* Berkeley Blue com transparência */
+            border: 2px solid var(--white-color);
+            transform: scale(1.05);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .day-card.highlight h3, .day-card.highlight p {
+            color: var(--white-color);
+        }
+
+        .day-card h3 {
+            font-size: 1.5em;
+            color: #3F7996; /* Cerulean */
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .day-card p {
+            font-size: 1em;
+            line-height: 1.4;
+            color: var(--white-color); /* Alterado para branco para maior destaque */
+        }
+
+        #acompanhamento .progress-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 15px 25px;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .progress-item .subject {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--white-color);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #555;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: width 0.5s ease;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            color: var(--white-color);
+        }
+
+        @media (max-width: 768px) {
+            .section-card {
+                padding: 20px;
+            }
+            
+            .section-card h2 {
+                font-size: 2em;
+            }
+
+            .site-header h1 {
+                font-size: 1.2em;
+            }
+
+            #checklist .list-item {
+                flex-direction: row; 
+                align-items: flex-start;
+                padding: 12px 20px;
+                gap: 10px;
+            }
+
+            #checklist .list-item input[type="checkbox"] {
+                margin-top: 5px;
+            }
+
+            #checklist .list-item label {
+                font-size: 1em;
+            }
+            
+            .water-calculator {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #cronograma {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Novo Cabeçalho -->
+    <header class="site-header">
+        <!-- Link para a página anterior (sem HTML de destino por enquanto) -->
+        <a href="#">&larr;</a>
+        <!-- Título principal da página -->
+        <h1>Atividades Extracurriculares</h1>
+    </header>
+    <hr class="header-separator">
+
+    <main>
+        <!-- Seção de Checklist (não tem animação de scroll) -->
+        <div id="checklist" class="section-card visible-card">
+            <h2>Checklist</h2>
+            <div class="list-item">
+                <input type="checkbox" id="sono">
+                <div class="content-group">
+                    <label for="sono">Sono</label>
+                    <p class="description">Descansar a mente para fixar o aprendizado e manter o foco.</p>
+                </div>
+            </div>
+            <div class="list-item">
+                <input type="checkbox" id="fisica">
+                <div class="content-group">
+                    <label for="fisica">Atividade Física</label>
+                    <p class="description">Aumenta a energia, reduz o estresse e melhora a memória.</p>
+                </div>
+            </div>
+            <div class="list-item">
+                <input type="checkbox" id="estudos">
+                <div class="content-group">
+                    <label for="estudos">Estudos na Plataforma</label>
+                    <p class="description">Consistência é a chave para a aprovação. Mantenha-se em dia!</p>
+                </div>
+            </div>
+            <div class="list-item">
+                <input type="checkbox" id="agua">
+                <div class="content-group">
+                    <label for="agua">Água</label>
+                    <p class="description">Manter-se hidratado é fundamental para a função cognitiva.</p>
+                    <div class="water-section">
+                        <hr>
+                        <h4>Descubra sua meta diária de água:</h4>
+                        <div class="water-calculator">
+                            <p>Seu peso (kg):</p>
+                            <input type="number" id="peso" placeholder="Ex: 70" min="1">
+                            <span id="resultado-agua">0 L</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Cronograma Semanal (com animação de scroll) -->
+        <div id="cronograma-semanal" class="section-card hidden-card">
+            <h2>Cronograma Semanal</h2>
+            <div id="cronograma">
+                <div class="day-card">
+                    <h3>Segunda</h3>
+                    <p>Matemática, Física</p>
+                </div>
+                <div class="day-card">
+                    <h3>Terça</h3>
+                    <p>Biologia, Química</p>
+                </div>
+                <div class="day-card">
+                    <h3>Quarta</h3>
+                    <p>Redação, Gramática</p>
+                </div>
+                <div class="day-card">
+                    <h3>Quinta</h3>
+                    <p>História, Geografia</p>
+                </div>
+                <div class="day-card">
+                    <h3>Sexta</h3>
+                    <p>Literatura, Filosofia</p>
+                </div>
+                <div class="day-card">
+                    <h3>Sábado</h3>
+                    <p>Revisão Geral</p>
+                </div>
+                <div class="day-card">
+                    <h3>Domingo</h3>
+                    <p>Simulado, Descanso</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Acompanhamento (com animação de scroll) -->
+        <div id="acompanhamento" class="section-card hidden-card">
+            <h2>Acompanhamento</h2>
+            <!-- Matérias e progresso de aulas -->
+            <div class="progress-item">
+                <div class="progress-info">
+                    <span class="subject">Redação</span>
+                    <span class="count">23/70</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 32.85%;"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-info">
+                    <span class="subject">Matemática</span>
+                    <span class="count">15/80</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 18.75%;"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-info">
+                    <span class="subject">Física</span>
+                    <span class="count">10/50</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 20%;"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-info">
+                    <span class="subject">Química</span>
+                    <span class="count">8/60</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 13.33%;"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-info">
+                    <span class="subject">Biologia</span>
+                    <span class="count">12/65</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 18.46%;"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-info">
+                    <span class="subject">História</span>
+                    <span class="count">30/80</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 37.5%;"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-info">
+                    <span class="subject">Geografia</span>
+                    <span class="count">25/75</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 33.33%;"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Função para calcular a quantidade de água necessária
+        function calcularAgua() {
+            const pesoInput = document.getElementById('peso');
+            const resultadoSpan = document.getElementById('resultado-agua');
+            const peso = parseFloat(pesoInput.value);
+
+            if (peso > 0) {
+                const quantidadeAgua = peso * 0.035;
+                resultadoSpan.textContent = `${quantidadeAgua.toFixed(2)} L`;
+            } else {
+                resultadoSpan.textContent = '0 L';
+            }
+        }
+
+        // Função para animar os elementos ao rolar a página
+        function animateOnScroll() {
+            const animatedElements = document.querySelectorAll('.hidden-card');
+            
+            animatedElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                // Se a posição do elemento estiver dentro da área visível
+                if (elementPosition < windowHeight * 0.8) {
+                    element.classList.remove('hidden-card');
+                    element.classList.add('visible-card');
+                }
+            });
+        }
+        
+        // Função para destacar o dia da semana atual no cronograma
+        function highlightCurrentDay() {
+            const days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+            const currentDayIndex = new Date().getDay();
+            const currentDayName = days[currentDayIndex];
+            
+            const dayCards = document.querySelectorAll('#cronograma .day-card');
+            
+            dayCards.forEach(card => {
+                const dayNameElement = card.querySelector('h3');
+                if (dayNameElement && dayNameElement.textContent === currentDayName) {
+                    card.classList.add('highlight');
+                } else {
+                    card.classList.remove('highlight'); // Remove o destaque de outros dias, se houver
+                }
+            });
+        }
+
+        window.addEventListener('load', () => {
+            // Adiciona o listener para o cálculo de água após o carregamento da página
+            const pesoInput = document.getElementById('peso');
+            if (pesoInput) {
+                pesoInput.addEventListener('input', calcularAgua);
+            }
+            
+            // Chama a função de animação na primeira carga para animar elementos que já estão na tela
+            animateOnScroll();
+            
+            // Chama a função para destacar o dia atual
+            highlightCurrentDay();
+        });
+        
+        // Adiciona o listener para o evento de rolagem
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
