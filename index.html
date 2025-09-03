@@ -6,802 +6,97 @@
     <title>20% Educacional - Guia do Aluno</title>
     <link rel="icon" href="img/logo final.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-        :root {
-            --primary-color: #12335A; /* Berkeley Blue */
-            --secondary-color: #1A2847; /* Space Cadet 2 */
-            --background-color: #0B2038; /* Oxford Blue */
-            --card-bg-color: rgba(28, 28, 56, 0.6); /* Space Cadet com transparência */
-            --border-color: #12335A; /* Berkeley Blue */
-            --text-color: #FFFFFF; /* Branco */
-            --heading-color: #12335A; /* Berkeley Blue */
-            --white-color: #FFFFFF; /* Branco */
-            --button-bg-color: #1A2847;
-            --button-border-color: #3F7996;
-            --button-hover-bg: #3F7996;
-            --button-active-bg: #12335A;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--background-color);
-            background-image: url('https://cdnb.artstation.com/p/assets/images/images/065/448/715/original/thiago-pedro-tweeter14.gif?1690385806');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text-color);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            /* Adiciona o pseudo-elemento para escurecer o fundo */
-            position: relative;
-            z-index: 1; /* Garante que o conteúdo fique acima do pseudo-elemento */
-        }
-
-        /* Novo estilo para o pseudo-elemento que escurece a imagem de fundo */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Cor preta com 50% de opacidade */
-            z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
-        }
-
-        /* Estilos do novo cabeçalho */
-        .site-header {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .site-header a {
-            font-size: 2em;
-            color: var(--white-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .site-header a:hover {
-            color: var(--primary-color);
-        }
-
-        .site-header h1 {
-            font-size: 1.5em;
-            color: var(--white-color);
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        .header-separator {
-            width: 100%;
-            border: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.5); /* Usando uma cor mais clara para o separador */
-            margin-bottom: 40px;
-        }
-
-        /* Estilos do menu de navegação - Agora com a linha de destaque e a "caixa" única */
-        .nav-menu {
-            position: relative; /* Para posicionar a linha em relação a este container */
-            display: flex;
-            justify-content: center;
-            gap: 1px; /* Reduzi o gap para unir os botões */
-            margin-bottom: 40px;
-            width: 100%;
-            max-width: 650px; /* Reduzi a largura máxima para dar uma aparência mais compacta */
-            flex-wrap: wrap;
-            padding: 5px; /* Adicionei um padding para a caixa */
-            background-color: var(--card-bg-color); /* Fundo da "caixa" */
-            border: 2px solid var(--border-color); /* Borda da "caixa" */
-            border-radius: 15px; /* Borda arredondada da "caixa" */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .nav-menu button {
-            background-color: transparent; /* Fundo transparente para ficarem dentro da "caixa" */
-            color: var(--white-color);
-            border: none; /* Removi a borda individual */
-            border-radius: 10px;
-            padding: 12px 25px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: color 0.3s ease, transform 0.2s ease;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            flex-grow: 1;
-            max-width: 200px;
-        }
-        
-        /* Ajustes nos cantos para a caixa única */
-        .nav-menu button:first-child {
-            border-top-left-radius: 13px;
-            border-bottom-left-radius: 13px;
-        }
-
-        .nav-menu button:last-child {
-            border-top-right-radius: 13px;
-            border-bottom-right-radius: 13px;
-        }
-        
-        /* Alterado: Cor do texto no hover e ativo permanece branca */
-        .nav-menu button:hover {
-            color: var(--white-color);
-            transform: translateY(-2px);
-        }
-
-        /* Alterado: Cor do texto no botão ativo permanece branca */
-        .nav-menu button.active {
-            color: var(--white-color);
-        }
-        
-        /* Estilos da linha que se move */
-        .nav-line {
-            position: absolute;
-            bottom: 5px; /* Posicionei a linha na parte inferior, dentro do padding */
-            left: 5px; /* Posicionei a linha na parte esquerda, dentro do padding */
-            height: 3px;
-            background-color: var(--white-color);
-            border-radius: 1.5px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        main {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Reduzido o espaçamento entre as seções */
-        }
-
-        /* Estilos ajustados para um visual mais profissional */
-        .section-card {
-            background: linear-gradient(145deg, rgba(28, 28, 56, 0.7), rgba(12, 12, 24, 0.7));
-            border: none;
-            border-radius: 20px;
-            padding: 20px; /* Reduzido o padding */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: all 0.5s ease-out;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Classes para a animação de scroll */
-        .hidden-card {
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .visible-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Classe para esconder a seção */
-        .hidden-section {
-            display: none;
-        }
-
-        .section-card h2 {
-            font-size: 2.5em;
-            color: var(--white-color);
-            margin-top: 0;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        
-        .list-items-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px; /* Reduzido o espaçamento */
-        }
-        
-        #custom-activities-container {
-            margin-top: 15px; /* Adicionado margem superior para separar das atividades padrão */
-        }
-
-        /* Estilos ajustados para um visual mais profissional */
-        #checklist .list-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 12px 20px; /* Reduzido o padding */
-            background: rgba(26, 40, 71, 0.7);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        #checklist .list-item:hover {
-            transform: translateY(-3px);
-            background: rgba(26, 40, 71, 0.9);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Aumentando o tamanho dos ícones do checklist */
-        #checklist .list-item .fa-solid,
-        #checklist .list-item .fa-regular {
-            font-size: 1.2em;
-        }
-
-        /* Ajustes para o checkbox */
-        #checklist .list-item input[type="checkbox"] {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            width: 20px; /* Reduzido o tamanho */
-            height: 20px; /* Reduzido o tamanho */
-            border: 2px solid var(--white-color); /* Aumentado o contraste */
-            border-radius: 5px;
-            background-color: transparent;
-            cursor: pointer;
-            position: relative;
-            flex-shrink: 0; 
-            margin-top: 3px; /* Ajuste para o alinhamento */
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        #checklist .list-item input[type="checkbox"]:checked {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        #checklist .list-item input[type="checkbox"]:checked::after {
-            content: '✓';
-            font-size: 14px; /* Reduzido o tamanho do checkmark */
-            color: #FFFFFF; /* Mantido em branco para contraste */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        #checklist .list-item .content-group {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        
-        #checklist .list-item label {
-            font-size: 0.9em;
-            cursor: pointer;
-            color: var(--white-color);
-        }
-        #checklist .list-item .description {
-            font-size: 0.9em;
-            color: #a0a0a0;
-            margin-top: 4px;
-        }
-
-        #checklist .list-item input[type="checkbox"]:checked + .content-group label {
-            color: #777;
-            text-decoration: line-through;
-        }
-
-        #checklist .list-item input[type="checkbox"]:checked + .content-group .description {
-            color: #777;
-        }
-
-        /* Estilos para a nova calculadora de água com duas caixas */
-        .water-section h4 {
-            font-size: 1em;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            color: var(--white-color);
-        }
-
-        .water-section hr {
-            border: none;
-            height: 1px;
-            background-color: #444;
-            margin: 10px 0;
-        }
-
-        .water-calculator {
-            display: flex;
-            justify-content: flex-start; /* Alinhamento alterado para a esquerda */
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Estilos ajustados para um visual mais profissional */
-        .water-input-box, .water-result-box {
-            background: rgba(11, 32, 56, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 8px; /* Reduzido o padding */
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center; /* Centraliza o conteúdo verticalmente */
-            flex-grow: 1; /* Permite que cresçam para preencher o espaço igualmente */
-            min-width: 100px; /* Garante que não fiquem muito pequenas */
-            max-width: 130px; /* Mantém a largura compacta em telas maiores */
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .water-input-box:hover, .water-result-box:hover {
-            transform: translateY(-2px);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .water-input-box label, .water-result-box span {
-            font-weight: bold;
-            font-size: 0.8em;
-            color: var(--white-color);
-        }
-
-        .water-input-box input {
-            padding: 5px;
-            margin-top: 5px;
-            border: none;
-            background-color: transparent;
-            color: var(--white-color);
-            width: 100%;
-            text-align: center;
-            outline: none;
-        }
-
-        .water-result-box .result-value {
-            font-size: 1em; /* Reduzido o tamanho da fonte */
-            margin-top: 5px;
-        }
-
-        .add-activity-button {
-            background-color: var(--button-bg-color);
-            color: var(--white-color);
-            border: 2px solid var(--button-border-color);
-            border-radius: 15px;
-            padding: 10px 20px; /* Reduzido o padding */
-            font-size: 0.9em; /* Reduzido o tamanho da fonte */
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-            margin-top: 20px;
-            width: fit-content; /* Deixa o botão mais compacto */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .add-activity-button:hover {
-            background-color: var(--button-hover-bg);
-            transform: translateY(-2px);
-        }
-
-        .add-activity-button:active {
-            background-color: var(--button-active-bg);
-            transform: translateY(0);
-        }
-        
-        .add-activity-button .icon {
-            font-size: 1.2em;
-        }
-
-        /* Estilos para o modal de adicionar atividade */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 10;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: linear-gradient(145deg, rgba(26, 40, 71, 0.9), rgba(12, 12, 24, 0.9));
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 450px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-        }
-        
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: var(--white-color);
-            font-size: 2em;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .modal-content h3 {
-            margin: 0;
-            color: var(--white-color);
-            text-align: center;
-            font-size: 1.5em;
-        }
-
-        /* Novo estilo para os rótulos e campos do modal */
-        .modal-input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px; /* Espaçamento entre label e input */
-        }
-        
-        .modal-input-group label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--white-color);
-            font-size: 1em;
-            font-weight: bold;
-        }
-
-        .modal-content input, .modal-content textarea {
-            width: 100%;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid var(--primary-color);
-            background-color: var(--background-color);
-            color: var(--white-color);
-            font-family: 'Inter', sans-serif;
-            font-size: 1em;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .modal-content input:focus, .modal-content textarea:focus {
-            border-color: var(--button-hover-bg);
-        }
-        
-        .modal-content textarea {
-            resize: vertical;
-        }
-
-        .modal-content button {
-            background-color: var(--button-hover-bg);
-            color: var(--white-color);
-            border: none;
-            border-radius: 10px;
-            padding: 12px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
-        
-        .modal-content button:hover {
-            background-color: var(--primary-color);
-        }
-        
-        .modal-content .validation-message {
-            color: #ff5555;
-            font-size: 0.9em;
-            text-align: center;
-            margin-top: -10px;
-            min-height: 20px;
-        }
-
-        /* Ajustes para o cronograma */
-        #cronograma-semanal #cronograma { /* Ajuste o seletor para pegar o cronograma dentro do section-card */
-            display: grid;
-            /* Aumenta a flexibilidade do grid diminuindo a largura mínima de cada coluna */
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* Reduzido o minmax */
-            gap: 15px; /* Reduzido o espaçamento */
-        }
-
-        /* Estilos ajustados para um visual mais profissional */
-        .day-card {
-            background: rgba(15, 24, 36, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 15px; /* Reduzido o padding */
-            text-align: center;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .day-card:hover {
-            transform: translateY(-5px);
-            background: rgba(15, 24, 36, 0.6);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .day-card.highlight {
-            background: linear-gradient(135deg, rgba(18, 51, 90, 0.8), rgba(63, 121, 150, 0.8));
-            border: 2px solid var(--white-color);
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .day-card.highlight h3, .day-card.highlight p {
-            color: var(--white-color);
-        }
-
-        .day-card h3 {
-            font-size: 1.2em; /* Reduzido o tamanho da fonte */
-            color: #3F7996; /* Cerulean */
-            margin-top: 0;
-            margin-bottom: 8px; /* Reduzido a margem */
-        }
-        
-        .day-card p {
-            font-size: 0.9em;
-            line-height: 1.4;
-            color: var(--white-color); /* Alterado para branco para maior destaque */
-        }
-
-        /* Estilos ajustados para um visual mais profissional */
-        #acompanhamento .progress-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 12px 20px; /* Reduzido o padding */
-            background: rgba(26, 40, 71, 0.7);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            margin-bottom: 10px; /* Reduzido a margem */
-        }
-
-        #acompanhamento .progress-item:hover {
-            transform: translateY(-3px);
-            background: rgba(26, 40, 71, 0.9);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .progress-item .subject {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: var(--white-color);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background-color: #555;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #3F7996, #12335A);
-            transition: width 0.5s ease;
-        }
-
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9em;
-            color: var(--white-color);
-        }
-        
-        .delete-btn {
-            background-color: transparent;
-            color: var(--white-color); /* Alterado para branco */
-            border: none;
-            cursor: pointer;
-            font-size: 2em; /* Alterado para maior */
-            padding: 0;
-            line-height: 1;
-            margin-left: auto;
-            transition: color 0.2s ease;
-        }
-
-        .delete-btn:hover {
-            color: #ff5555; /* Mantenho a cor de hover para feedback visual */
-        }
-        
-        #chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            margin-top: 20px;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
-        }
-        .chart-wrapper {
-            /* Alterações para centralizar o gráfico */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .section-card {
-                padding: 15px; /* Reduzido ainda mais em telas menores */
-            }
-            
-            .section-card h2 {
-                font-size: 2em;
-            }
-
-            .site-header h1 {
-                font-size: 1.2em;
-            }
-            
-            /* Melhoria na responsividade do menu */
-            .nav-menu {
-                justify-content: space-between; /* Distribui os botões uniformemente */
-                gap: 5px; /* Reduzi o gap para ficar mais compacto */
-                padding: 5px; /* Mantive o padding */
-                border-radius: 15px;
-            }
-
-            .nav-menu button {
-                padding: 10px 15px; /* Reduzi o padding horizontal para caber melhor */
-                font-size: 0.9em; /* Diminui a fonte para ficar mais compacto */
-                flex-grow: 1; /* Permite que os botões cresçam para preencher o espaço */
-                min-width: 0; /* Remove a largura mínima para evitar quebras de layout */
-            }
-            
-            /* Garantindo que a linha de destaque continue funcionando */
-            .nav-line {
-                display: block; /* Mantenho a linha visível */
-            }
-
-            #checklist .list-item {
-                flex-direction: row; 
-                align-items: flex-start;
-                padding: 10px 15px; /* Ajuste o padding para telas menores */
-                gap: 10px;
-            }
-
-            #checklist .list-item input[type="checkbox"] {
-                margin-top: 3px;
-            }
-
-            #checklist .list-item label {
-                font-size: 1em;
-            }
-            
-            .water-calculator {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .water-input-box, .water-result-box {
-                flex-grow: 1;
-                width: 100%; /* Ocupa a largura total em telas pequenas */
-            }
-
-            #cronograma-semanal #cronograma {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Novo Cabeçalho -->
     <header class="site-header">
-        <!-- Link para a página anterior (sem HTML de destino por enquanto) -->
         <a href="#">&larr;</a>
-        <!-- Título principal da página -->
         <h1>Guia do Aluno</h1>
     </header>
     <hr class="header-separator">
-
-    <!-- Menu de navegação adicionado -->
     <div class="nav-menu">
         <button id="btn-atividades" class="active"><i class="fa-solid fa-list-check"></i> Extracurricular</button>
         <button id="btn-cronograma"><i class="fa-regular fa-calendar-days"></i> Cronograma</button>
         <button id="btn-aulas"><i class="fa-solid fa-book-open"></i> Aulas</button>
-        <!-- Linha de destaque que se move -->
         <div id="nav-line" class="nav-line"></div>
     </div>
-
     <main>
-        <!-- Seção de Checklist (não tem animação de scroll) -->
         <div id="checklist" class="section-card visible-card">
             <h2>Checklist</h2>
-            <div class="list-items-container" id="default-activities">
-                <div class="list-item">
+            <div id="progress-counter" class="progress-counter-card">
+                <div class="progress-info-counter">
+                    <p>Tarefas Concluídas</p>
+                    <span id="counter-text">0 de 0</span>
+                </div>
+                <div class="progress-bar-counter">
+                    <div id="progress-counter-bar" class="progress-counter" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div class="cards-container" id="activities-grid">
+                <div class="activity-card">
                     <input type="checkbox" id="sono">
-                    <div class="content-group">
-                        <label for="sono"><i class="fa-solid fa-moon"></i> Sono (8 Horas)</label>
-                        <p class="description">Descansar a mente para fixar o aprendizado e manter o foco.</p>
-                    </div>
+                    <label for="sono">
+                        <i class="fa-solid fa-moon icon"></i>
+                        <span class="activity-title">Sono (8 Horas)</span>
+                    </label>
+                    <p class="description">Descansar a mente para fixar o aprendizado e manter o foco.</p>
                 </div>
-                <div class="list-item">
+                <div class="activity-card">
                     <input type="checkbox" id="fisica">
-                    <div class="content-group">
-                        <label for="fisica"><i class="fa-solid fa-person-running"></i> Atividade Física</label>
-                        <p class="description">Aumenta a energia, reduz o estresse e melhora a memória.</p>
-                    </div>
+                    <label for="fisica">
+                        <i class="fa-solid fa-person-running icon"></i>
+                        <span class="activity-title">Atividade Física</span>
+                    </label>
+                    <p class="description">Aumenta a energia, reduz o estresse e melhora a memória.</p>
                 </div>
-                <div class="list-item">
+                <div class="activity-card">
                     <input type="checkbox" id="estudos">
-                    <div class="content-group">
-                        <label for="estudos"><i class="fa-solid fa-laptop-code"></i> Estudos na Plataforma</label>
-                        <p class="description">Consistência é a chave para a aprovação. Mantenha-se em dia!</p>
-                    </div>
+                    <label for="estudos">
+                        <i class="fa-solid fa-laptop-code icon"></i>
+                        <span class="activity-title">Estudos na Plataforma</span>
+                    </label>
+                    <p class="description">Consistência é a chave para a aprovação. Mantenha-se em dia!</p>
                 </div>
-                <div class="list-item">
+                <div id="water-card" class="activity-card water-section">
                     <input type="checkbox" id="agua">
-                    <div class="content-group">
-                        <label for="agua"><i class="fa-solid fa-glass-water"></i> Água</label>
-                        <p class="description">Manter-se hidratado é fundamental para a função cognitiva.</p>
-                        <div class="water-section">
-                            <hr>
-                            <!-- Título adicionado novamente para as caixinhas da calculadora -->
-                            <h4>Descubra sua meta diária de água:</h4>
-                            <!-- Nova estrutura da calculadora de água -->
-                            <div class="water-calculator">
-                                <!-- Caixa para o input de peso -->
-                                <div class="water-input-box">
-                                    <label for="peso">Seu peso (kg)</label>
-                                    <input type="number" id="peso" placeholder="70" min="1">
-                                </div>
-                                <!-- Caixa para o resultado de água -->
-                                <div class="water-result-box">
-                                    <span>Meta de água:</span>
-                                    <span id="resultado-agua" class="result-value">0 L</span>
-                                </div>
-                            </div>
+                    <label for="agua">
+                        <i class="fa-solid fa-glass-water icon"></i>
+                        <span class="activity-title">Água</span>
+                    </label>
+                    <p class="description">Manter-se hidratado é fundamental para a função cognitiva.</p>
+                    <div class="water-calculator">
+                        <div class="water-input-box">
+                            <label for="peso">Seu peso (kg)</label>
+                            <input type="number" id="peso" placeholder="70" min="1">
+                        </div>
+                        <div class="water-result-box">
+                            <span>Meta de água:</span>
+                            <span id="resultado-agua" class="result-value">0 L</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="list-items-container" id="custom-activities-container">
-                <!-- Atividades personalizadas serão inseridas aqui via JavaScript -->
-            </div>
-            
-            <!-- Botão para adicionar atividades personalizado -->
+            <div class="cards-container" id="custom-activities-container"></div>
             <button id="add-activity-btn" class="add-activity-button">
-                <i class="fa-solid fa-plus"></i>
-                Adicionar Nova Atividade
+                <i class="fa-solid fa-plus"></i> Adicionar Nova Atividade
             </button>
         </div>
-
-        <!-- Modal para adicionar nova atividade -->
         <div id="add-activity-modal" class="modal">
             <div class="modal-content">
                 <span class="modal-close-btn">&times;</span>
                 <h3>Adicionar Nova Atividade</h3>
-
-                <!-- Campo para o Título da Atividade com rótulo e ícone -->
                 <div class="modal-input-group">
                     <label for="activity-title"><i class="fa-solid fa-pen-to-square"></i> Título da Atividade</label>
                     <input type="text" id="activity-title" placeholder="Ex: Meditação, Ler um livro..." required>
                 </div>
-                
-                <!-- Campo para a Descrição com rótulo e ícone -->
                 <div class="modal-input-group">
                     <label for="activity-description"><i class="fa-solid fa-file-lines"></i> Descrição</label>
                     <textarea id="activity-description" placeholder="Descreva brevemente a sua atividade, por que ela é importante para você ou como ela deve ser realizada."></textarea>
                 </div>
-
                 <span id="validation-message" class="validation-message"></span>
                 <button id="save-activity-btn">Salvar Atividade</button>
             </div>
         </div>
-
-        <!-- Seção de Cronograma Semanal (com animação de scroll) -->
         <div id="cronograma-semanal" class="section-card hidden-section hidden-card">
             <h2>Cronograma Semanal</h2>
             <div id="cronograma">
@@ -835,16 +130,12 @@
                 </div>
             </div>
         </div>
-
-        <!-- Seção de Acompanhamento (com animação de scroll) -->
         <div id="acompanhamento" class="section-card hidden-section hidden-card">
             <h2>Aulas Assistidas</h2>
-           <!-- Gráfico de Acompanhamento -->
             <div id="chart-container">
                 <canvas id="progress-chart"></canvas>
             </div>
             <hr>
-            <!-- Matérias e progresso de aulas -->
             <div class="progress-item">
                 <div class="progress-info">
                     <span class="subject">Redação</span>
@@ -910,29 +201,54 @@
             </div>
         </div>
     </main>
-
-    <!-- Adiciona a biblioteca Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
-        // Dados de progresso para o gráfico
-        const data = [
-            { subject: "Redação", completed: 23, total: 70 },
-            { subject: "Matemática", completed: 15, total: 80 },
-            { subject: "Física", completed: 10, total: 50 },
-            { subject: "Química", completed: 8, total: 60 },
-            { subject: "Biologia", completed: 12, total: 65 },
-            { subject: "História", completed: 30, total: 80 },
-            { subject: "Geografia", completed: 25, total: 75 }
-        ];
+        const data = [{
+            subject: "Redação",
+            completed: 23,
+            total: 70
+        }, {
+            subject: "Matemática",
+            completed: 15,
+            total: 80
+        }, {
+            subject: "Física",
+            completed: 10,
+            total: 50
+        }, {
+            subject: "Química",
+            completed: 8,
+            total: 60
+        }, {
+            subject: "Biologia",
+            completed: 12,
+            total: 65
+        }, {
+            subject: "História",
+            completed: 30,
+            total: 80
+        }, {
+            subject: "Geografia",
+            completed: 25,
+            total: 75
+        }];
 
-        // Função para renderizar o gráfico
+        function updateProgressCounter() {
+            const checkboxes = document.querySelectorAll('#checklist .activity-card input[type="checkbox"]');
+            const totalTasks = checkboxes.length;
+            const completedTasks = document.querySelectorAll('#checklist .activity-card input[type="checkbox"]:checked').length;
+            const counterText = document.getElementById('counter-text');
+            const progressBar = document.getElementById('progress-counter-bar');
+            
+            counterText.textContent = `${completedTasks} de ${totalTasks}`;
+            const percentage = (totalTasks > 0) ? (completedTasks / totalTasks) * 100 : 0;
+            progressBar.style.width = `${percentage}%`;
+        }
+
         function renderChart() {
             const subjects = data.map(item => item.subject);
             const percentages = data.map(item => (item.completed / item.total) * 100);
-            
             const ctx = document.getElementById('progress-chart').getContext('2d');
-            
             const chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -940,24 +256,8 @@
                     datasets: [{
                         label: 'Progresso (%)',
                         data: percentages,
-                        backgroundColor: [
-                            '#3F7996',
-                            '#1A2847',
-                            '#12335A',
-                            '#3F7996',
-                            '#1A2847',
-                            '#12335A',
-                            '#3F7996'
-                        ],
-                        borderColor: [
-                            '#FFFFFF',
-                            '#FFFFFF',
-                            '#FFFFFF',
-                            '#FFFFFF',
-                            '#FFFFFF',
-                            '#FFFFFF',
-                            '#FFFFFF'
-                        ],
+                        backgroundColor: ['#3F7996', '#1A2847', '#12335A', '#3F7996', '#1A2847', '#12335A', '#3F7996'],
+                        borderColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
                         borderWidth: 1
                     }]
                 },
@@ -969,18 +269,18 @@
                             beginAtZero: true,
                             max: 100,
                             ticks: {
-                                color: 'rgba(255, 255, 255, 0.8)'
+                                color: 'rgba(255,255,255,0.8)'
                             },
                             grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
+                                color: 'rgba(255,255,255,0.1)'
                             }
                         },
                         x: {
                             ticks: {
-                                color: 'rgba(255, 255, 255, 0.8)'
+                                color: 'rgba(255,255,255,0.8)'
                             },
                             grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
+                                color: 'rgba(255,255,255,0.1)'
                             }
                         }
                     },
@@ -999,31 +299,29 @@
                 }
             });
         }
-        
-        // Funções para manipular atividades diretamente no DOM
+
         function renderCustomActivity(activity) {
-            const container = document.getElementById('custom-activities-container');
+            const container = document.getElementById('activities-grid');
             const item = document.createElement('div');
-            item.className = 'list-item';
-            
+            item.className = 'activity-card custom-card';
             const checkboxId = `custom-activity-${Date.now()}`;
             const isChecked = activity.completed ? 'checked' : '';
-
             item.innerHTML = `
                 <input type="checkbox" id="${checkboxId}" ${isChecked}>
-                <div class="content-group">
-                    <label for="${checkboxId}"><i class="fa-solid fa-star"></i> ${activity.title}</label>
-                    <p class="description">${activity.description}</p>
-                </div>
+                <label for="${checkboxId}">
+                    <i class="fa-solid fa-star icon"></i>
+                    <span class="activity-title">${activity.title}</span>
+                </label>
+                <p class="description">${activity.description}</p>
                 <button class="delete-btn">&times;</button>
             `;
-
-            // Adiciona o evento de exclusão ao botão
             const deleteButton = item.querySelector('.delete-btn');
             deleteButton.addEventListener('click', () => {
                 item.remove();
+                updateProgressCounter();
             });
-
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', updateProgressCounter);
             container.appendChild(item);
         }
 
@@ -1031,42 +329,41 @@
             const activityTitleInput = document.getElementById('activity-title');
             const activityDescInput = document.getElementById('activity-description');
             const validationMessage = document.getElementById('validation-message');
-            
             const title = activityTitleInput.value.trim();
             const description = activityDescInput.value.trim();
-
             if (title) {
-                renderCustomActivity({ title, description, completed: false });
+                renderCustomActivity({
+                    title,
+                    description,
+                    completed: false
+                });
                 modal.style.display = 'none';
                 activityTitleInput.value = '';
                 activityDescInput.value = '';
                 validationMessage.textContent = '';
+                updateProgressCounter();
             } else {
                 validationMessage.textContent = "O título da atividade não pode estar vazio!";
             }
         }
 
-        // Funções da UI
         function calcularAgua() {
             const pesoInput = document.getElementById('peso');
             const resultadoSpan = document.getElementById('resultado-agua');
             const peso = parseFloat(pesoInput.value);
-
             if (peso > 0) {
-                const quantidadeAgua = peso * 0.035;
+                const quantidadeAgua = peso * .035;
                 resultadoSpan.textContent = `${quantidadeAgua.toFixed(2)} L`;
             } else {
                 resultadoSpan.textContent = '0 L';
             }
         }
-        
+
         function highlightCurrentDay() {
             const days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
             const currentDayIndex = new Date().getDay();
             const currentDayName = days[currentDayIndex];
-            
             const dayCards = document.querySelectorAll('#cronograma .day-card');
-            
             dayCards.forEach(card => {
                 const dayNameElement = card.querySelector('h3');
                 if (dayNameElement && dayNameElement.textContent === currentDayName) {
@@ -1076,26 +373,24 @@
                 }
             });
         }
-        
+
         function showSection(sectionId) {
             document.querySelectorAll('.section-card').forEach(section => {
                 section.classList.add('hidden-section');
                 section.classList.remove('visible-card');
             });
-
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.remove('hidden-section');
                 targetSection.classList.add('visible-card');
-                window.scrollTo(0, 0); 
+                window.scrollTo(0, 0);
             }
         }
-        
+
         function updateNavLine(activeButton) {
             const navLine = document.getElementById('nav-line');
             const buttonRect = activeButton.getBoundingClientRect();
             const menuRect = document.querySelector('.nav-menu').getBoundingClientRect();
-            
             navLine.style.width = `${buttonRect.width}px`;
             navLine.style.transform = `translateX(${buttonRect.left - menuRect.left}px)`;
         }
@@ -1104,75 +399,65 @@
             document.querySelectorAll('.nav-menu button').forEach(btn => {
                 btn.classList.remove('active');
             });
-
-            const clickedButton = event.target;
-            clickedButton.classList.add('active');
-
-            updateNavLine(clickedButton);
-
-            const buttonId = clickedButton.id;
-            switch (buttonId) {
-                case 'btn-atividades':
-                    showSection('checklist');
-                    break;
-                case 'btn-cronograma':
-                    showSection('cronograma-semanal');
-                    break;
-                case 'btn-aulas':
-                    showSection('acompanhamento');
-                    // Chama a função para renderizar o gráfico quando a seção de aulas for exibida
-                    renderChart();
-                    break;
+            const clickedButton = event.target.closest('button');
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+                updateNavLine(clickedButton);
+                const buttonId = clickedButton.id;
+                switch (buttonId) {
+                    case 'btn-atividades':
+                        showSection('checklist');
+                        break;
+                    case 'btn-cronograma':
+                        showSection('cronograma-semanal');
+                        break;
+                    case 'btn-aulas':
+                        showSection('acompanhamento');
+                        renderChart();
+                        break;
+                }
             }
         }
 
-        // Eventos do Modal
         const addActivityBtn = document.getElementById('add-activity-btn');
         const modal = document.getElementById('add-activity-modal');
         const closeModalBtn = document.querySelector('.modal-close-btn');
         const saveActivityBtn = document.getElementById('save-activity-btn');
 
         window.addEventListener('load', () => {
-            // Adiciona o listener para o cálculo de água
             const pesoInput = document.getElementById('peso');
             if (pesoInput) {
                 pesoInput.addEventListener('input', calcularAgua);
             }
-            
-            // Chama a função para destacar o dia atual
             highlightCurrentDay();
-            
-            // Adiciona os listeners para os botões do menu
             document.getElementById('btn-atividades').addEventListener('click', handleMenuClick);
             document.getElementById('btn-cronograma').addEventListener('click', handleMenuClick);
             document.getElementById('btn-aulas').addEventListener('click', handleMenuClick);
-            
-            // Define a seção de atividades como a primeira a ser mostrada
             showSection('checklist');
-
-            // Posiciona a linha de destaque no botão inicial
             const initialButton = document.querySelector('.nav-menu button.active');
-            if(initialButton) {
+            if (initialButton) {
                 updateNavLine(initialButton);
             }
-
-            // Eventos do Modal
             addActivityBtn.addEventListener('click', () => {
                 modal.style.display = 'flex';
-                document.getElementById('validation-message').textContent = ''; 
+                document.getElementById('validation-message').textContent = '';
             });
-
             closeModalBtn.addEventListener('click', () => {
                 modal.style.display = 'none';
             });
-
             window.addEventListener('click', (event) => {
                 if (event.target === modal) {
                     modal.style.display = 'none';
                 }
             });
-
             saveActivityBtn.addEventListener('click', saveNewActivity);
+            
+            // Adiciona listener para os novos cards
+            const activitiesContainer = document.getElementById('activities-grid');
+            activitiesContainer.addEventListener('change', updateProgressCounter);
+            
+            // Atualiza o contador na primeira carga da página
+            updateProgressCounter();
         });
     </script>
 </body>
