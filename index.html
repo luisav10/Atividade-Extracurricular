@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20% Educacional - Guia do Aluno</title>
+    <link rel="icon" href="img/logo final.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
@@ -158,16 +160,20 @@
             max-width: 1200px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 20px; /* Reduzido o espaçamento entre as seções */
         }
 
+        /* Estilos ajustados para um visual mais profissional */
         .section-card {
-            background-color: var(--card-bg-color);
-            border: 2px solid var(--border-color);
+            background: linear-gradient(145deg, rgba(28, 28, 56, 0.7), rgba(12, 12, 24, 0.7));
+            border: none;
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            padding: 20px; /* Reduzido o padding */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.5s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         /* Classes para a animação de scroll */
@@ -193,20 +199,39 @@
             text-align: center;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
+        
+        .list-items-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Reduzido o espaçamento */
+        }
+        
+        #custom-activities-container {
+            margin-top: 15px; /* Adicionado margem superior para separar das atividades padrão */
+        }
 
+        /* Estilos ajustados para um visual mais profissional */
         #checklist .list-item {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            padding: 15px 25px;
-            background-color: var(--secondary-color);
+            gap: 10px;
+            padding: 12px 20px; /* Reduzido o padding */
+            background: rgba(26, 40, 71, 0.7);
             border-radius: 15px;
-            margin-bottom: 15px;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
 
         #checklist .list-item:hover {
-            background-color: #2b3038;
+            transform: translateY(-3px);
+            background: rgba(26, 40, 71, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Aumentando o tamanho dos ícones do checklist */
+        #checklist .list-item .fa-solid,
+        #checklist .list-item .fa-regular {
+            font-size: 1.2em;
         }
 
         /* Ajustes para o checkbox */
@@ -214,15 +239,15 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            width: 25px;
-            height: 25px;
+            width: 20px; /* Reduzido o tamanho */
+            height: 20px; /* Reduzido o tamanho */
             border: 2px solid var(--white-color); /* Aumentado o contraste */
             border-radius: 5px;
             background-color: transparent;
             cursor: pointer;
             position: relative;
             flex-shrink: 0; 
-            margin-top: 6px; 
+            margin-top: 3px; /* Ajuste para o alinhamento */
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
@@ -233,7 +258,7 @@
 
         #checklist .list-item input[type="checkbox"]:checked::after {
             content: '✓';
-            font-size: 18px;
+            font-size: 14px; /* Reduzido o tamanho do checkmark */
             color: #FFFFFF; /* Mantido em branco para contraste */
             position: absolute;
             top: 50%;
@@ -252,7 +277,6 @@
             cursor: pointer;
             color: var(--white-color);
         }
-
         #checklist .list-item .description {
             font-size: 0.9em;
             color: #a0a0a0;
@@ -290,27 +314,32 @@
             gap: 10px;
         }
 
+        /* Estilos ajustados para um visual mais profissional */
         .water-input-box, .water-result-box {
-            background-color: var(--background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 10px; /* Adicionado padding para centralizar visualmente o conteúdo */
-            box-shadow: inset 0 2p
-
-x 4px rgba(0, 0, 0, 0.4);
+            background: rgba(11, 32, 56, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px; /* Reduzido o padding */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center; /* Centraliza o conteúdo verticalmente */
             flex-grow: 1; /* Permite que cresçam para preencher o espaço igualmente */
-            min-width: 120px; /* Garante que não fiquem muito pequenas */
-            max-width: 150px; /* Mantém a largura compacta em telas maiores */
+            min-width: 100px; /* Garante que não fiquem muito pequenas */
+            max-width: 130px; /* Mantém a largura compacta em telas maiores */
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .water-input-box:hover, .water-result-box:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .water-input-box label, .water-result-box span {
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 0.8em;
             color: var(--white-color);
         }
 
@@ -326,37 +355,180 @@ x 4px rgba(0, 0, 0, 0.4);
         }
 
         .water-result-box .result-value {
-            font-size: 1.1em;
+            font-size: 1em; /* Reduzido o tamanho da fonte */
             margin-top: 5px;
         }
+
+        .add-activity-button {
+            background-color: var(--button-bg-color);
+            color: var(--white-color);
+            border: 2px solid var(--button-border-color);
+            border-radius: 15px;
+            padding: 10px 20px; /* Reduzido o padding */
+            font-size: 0.9em; /* Reduzido o tamanho da fonte */
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            width: fit-content; /* Deixa o botão mais compacto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .add-activity-button:hover {
+            background-color: var(--button-hover-bg);
+            transform: translateY(-2px);
+        }
+
+        .add-activity-button:active {
+            background-color: var(--button-active-bg);
+            transform: translateY(0);
+        }
         
+        .add-activity-button .icon {
+            font-size: 1.2em;
+        }
+
+        /* Estilos para o modal de adicionar atividade */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, rgba(26, 40, 71, 0.9), rgba(12, 12, 24, 0.9));
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--white-color);
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-content h3 {
+            margin: 0;
+            color: var(--white-color);
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        /* Novo estilo para os rótulos e campos do modal */
+        .modal-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Espaçamento entre label e input */
+        }
+        
+        .modal-input-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white-color);
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .modal-content input, .modal-content textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--background-color);
+            color: var(--white-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal-content input:focus, .modal-content textarea:focus {
+            border-color: var(--button-hover-bg);
+        }
+        
+        .modal-content textarea {
+            resize: vertical;
+        }
+
+        .modal-content button {
+            background-color: var(--button-hover-bg);
+            color: var(--white-color);
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .modal-content button:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .modal-content .validation-message {
+            color: #ff5555;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: -10px;
+            min-height: 20px;
+        }
+
         /* Ajustes para o cronograma */
         #cronograma-semanal #cronograma { /* Ajuste o seletor para pegar o cronograma dentro do section-card */
             display: grid;
             /* Aumenta a flexibilidade do grid diminuindo a largura mínima de cada coluna */
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* Reduzido o minmax */
+            gap: 15px; /* Reduzido o espaçamento */
         }
 
+        /* Estilos ajustados para um visual mais profissional */
         .day-card {
-            background-color: rgba(15, 24, 36, 0.4); /* Rich Black com transparência */
+            background: rgba(15, 24, 36, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 15px; /* Reduzido o padding */
             text-align: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .day-card:hover {
             transform: translateY(-5px);
-            background-color: rgba(15, 24, 36, 0.6); /* Rich Black com transparência mais escura */
+            background: rgba(15, 24, 36, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
         .day-card.highlight {
-            background-color: rgba(18, 51, 90, 0.6); /* Berkeley Blue com transparência */
+            background: linear-gradient(135deg, rgba(18, 51, 90, 0.8), rgba(63, 121, 150, 0.8));
             border: 2px solid var(--white-color);
             transform: scale(1.05);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
         .day-card.highlight h3, .day-card.highlight p {
@@ -364,26 +536,35 @@ x 4px rgba(0, 0, 0, 0.4);
         }
 
         .day-card h3 {
-            font-size: 1.5em;
+            font-size: 1.2em; /* Reduzido o tamanho da fonte */
             color: #3F7996; /* Cerulean */
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* Reduzido a margem */
         }
         
         .day-card p {
-            font-size: 1em;
+            font-size: 0.9em;
             line-height: 1.4;
             color: var(--white-color); /* Alterado para branco para maior destaque */
         }
 
+        /* Estilos ajustados para um visual mais profissional */
         #acompanhamento .progress-item {
             display: flex;
             flex-direction: column;
             gap: 8px;
-            padding: 15px 25px;
-            background-color: var(--secondary-color);
+            padding: 12px 20px; /* Reduzido o padding */
+            background: rgba(26, 40, 71, 0.7);
             border-radius: 15px;
-            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 10px; /* Reduzido a margem */
+        }
+
+        #acompanhamento .progress-item:hover {
+            transform: translateY(-3px);
+            background: rgba(26, 40, 71, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .progress-item .subject {
@@ -398,11 +579,12 @@ x 4px rgba(0, 0, 0, 0.4);
             background-color: #555;
             border-radius: 5px;
             overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .progress {
             height: 100%;
-            background-color: var(--primary-color);
+            background: linear-gradient(90deg, #3F7996, #12335A);
             transition: width 0.5s ease;
         }
 
@@ -413,10 +595,45 @@ x 4px rgba(0, 0, 0, 0.4);
             font-size: 0.9em;
             color: var(--white-color);
         }
+        
+        .delete-btn {
+            background-color: transparent;
+            color: var(--white-color); /* Alterado para branco */
+            border: none;
+            cursor: pointer;
+            font-size: 2em; /* Alterado para maior */
+            padding: 0;
+            line-height: 1;
+            margin-left: auto;
+            transition: color 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            color: #ff5555; /* Mantenho a cor de hover para feedback visual */
+        }
+        
+        #chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .chart-wrapper {
+            /* Alterações para centralizar o gráfico */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
 
         @media (max-width: 768px) {
             .section-card {
-                padding: 20px;
+                padding: 15px; /* Reduzido ainda mais em telas menores */
             }
             
             .section-card h2 {
@@ -450,12 +667,12 @@ x 4px rgba(0, 0, 0, 0.4);
             #checklist .list-item {
                 flex-direction: row; 
                 align-items: flex-start;
-                padding: 12px 20px;
+                padding: 10px 15px; /* Ajuste o padding para telas menores */
                 gap: 10px;
             }
 
             #checklist .list-item input[type="checkbox"] {
-                margin-top: 5px;
+                margin-top: 3px;
             }
 
             #checklist .list-item label {
@@ -490,9 +707,9 @@ x 4px rgba(0, 0, 0, 0.4);
 
     <!-- Menu de navegação adicionado -->
     <div class="nav-menu">
-        <button id="btn-atividades" class="active">Extracurricular</button>
-        <button id="btn-cronograma">Cronograma</button>
-        <button id="btn-aulas">Aulas</button>
+        <button id="btn-atividades" class="active"><i class="fa-solid fa-list-check"></i> Extracurricular</button>
+        <button id="btn-cronograma"><i class="fa-regular fa-calendar-days"></i> Cronograma</button>
+        <button id="btn-aulas"><i class="fa-solid fa-book-open"></i> Aulas</button>
         <!-- Linha de destaque que se move -->
         <div id="nav-line" class="nav-line"></div>
     </div>
@@ -501,51 +718,86 @@ x 4px rgba(0, 0, 0, 0.4);
         <!-- Seção de Checklist (não tem animação de scroll) -->
         <div id="checklist" class="section-card visible-card">
             <h2>Checklist</h2>
-            <div class="list-item">
-                <input type="checkbox" id="sono">
-                <div class="content-group">
-                    <label for="sono">Sono (8 Horas)</label>
-                    <p class="description">Descansar a mente para fixar o aprendizado e manter o foco.</p>
+            <div class="list-items-container" id="default-activities">
+                <div class="list-item">
+                    <input type="checkbox" id="sono">
+                    <div class="content-group">
+                        <label for="sono"><i class="fa-solid fa-moon"></i> Sono (8 Horas)</label>
+                        <p class="description">Descansar a mente para fixar o aprendizado e manter o foco.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="list-item">
-                <input type="checkbox" id="fisica">
-                <div class="content-group">
-                    <label for="fisica">Atividade Física</label>
-                    <p class="description">Aumenta a energia, reduz o estresse e melhora a memória.</p>
+                <div class="list-item">
+                    <input type="checkbox" id="fisica">
+                    <div class="content-group">
+                        <label for="fisica"><i class="fa-solid fa-person-running"></i> Atividade Física</label>
+                        <p class="description">Aumenta a energia, reduz o estresse e melhora a memória.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="list-item">
-                <input type="checkbox" id="estudos">
-                <div class="content-group">
-                    <label for="estudos">Estudos na Plataforma</label>
-                    <p class="description">Consistência é a chave para a aprovação. Mantenha-se em dia!</p>
+                <div class="list-item">
+                    <input type="checkbox" id="estudos">
+                    <div class="content-group">
+                        <label for="estudos"><i class="fa-solid fa-laptop-code"></i> Estudos na Plataforma</label>
+                        <p class="description">Consistência é a chave para a aprovação. Mantenha-se em dia!</p>
+                    </div>
                 </div>
-            </div>
-            <div class="list-item">
-                <input type="checkbox" id="agua">
-                <div class="content-group">
-                    <label for="agua">Água</label>
-                    <p class="description">Manter-se hidratado é fundamental para a função cognitiva.</p>
-                    <div class="water-section">
-                        <hr>
-                        <!-- Título adicionado novamente para as caixinhas da calculadora -->
-                        <h4>Descubra sua meta diária de água:</h4>
-                        <!-- Nova estrutura da calculadora de água -->
-                        <div class="water-calculator">
-                            <!-- Caixa para o input de peso -->
-                            <div class="water-input-box">
-                                <label for="peso">Seu peso (kg)</label>
-                                <input type="number" id="peso" placeholder="70" min="1">
-                            </div>
-                            <!-- Caixa para o resultado de água -->
-                            <div class="water-result-box">
-                                <span>Meta de água:</span>
-                                <span id="resultado-agua" class="result-value">0 L</span>
+                <div class="list-item">
+                    <input type="checkbox" id="agua">
+                    <div class="content-group">
+                        <label for="agua"><i class="fa-solid fa-glass-water"></i> Água</label>
+                        <p class="description">Manter-se hidratado é fundamental para a função cognitiva.</p>
+                        <div class="water-section">
+                            <hr>
+                            <!-- Título adicionado novamente para as caixinhas da calculadora -->
+                            <h4>Descubra sua meta diária de água:</h4>
+                            <!-- Nova estrutura da calculadora de água -->
+                            <div class="water-calculator">
+                                <!-- Caixa para o input de peso -->
+                                <div class="water-input-box">
+                                    <label for="peso">Seu peso (kg)</label>
+                                    <input type="number" id="peso" placeholder="70" min="1">
+                                </div>
+                                <!-- Caixa para o resultado de água -->
+                                <div class="water-result-box">
+                                    <span>Meta de água:</span>
+                                    <span id="resultado-agua" class="result-value">0 L</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="list-items-container" id="custom-activities-container">
+                <!-- Atividades personalizadas serão inseridas aqui via JavaScript -->
+            </div>
+            
+            <!-- Botão para adicionar atividades personalizado -->
+            <button id="add-activity-btn" class="add-activity-button">
+                <i class="fa-solid fa-plus"></i>
+                Adicionar Nova Atividade
+            </button>
+        </div>
+
+        <!-- Modal para adicionar nova atividade -->
+        <div id="add-activity-modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close-btn">&times;</span>
+                <h3>Adicionar Nova Atividade</h3>
+
+                <!-- Campo para o Título da Atividade com rótulo e ícone -->
+                <div class="modal-input-group">
+                    <label for="activity-title"><i class="fa-solid fa-pen-to-square"></i> Título da Atividade</label>
+                    <input type="text" id="activity-title" placeholder="Ex: Meditação, Ler um livro..." required>
+                </div>
+                
+                <!-- Campo para a Descrição com rótulo e ícone -->
+                <div class="modal-input-group">
+                    <label for="activity-description"><i class="fa-solid fa-file-lines"></i> Descrição</label>
+                    <textarea id="activity-description" placeholder="Descreva brevemente a sua atividade, por que ela é importante para você ou como ela deve ser realizada."></textarea>
+                </div>
+
+                <span id="validation-message" class="validation-message"></span>
+                <button id="save-activity-btn">Salvar Atividade</button>
             </div>
         </div>
 
@@ -587,6 +839,11 @@ x 4px rgba(0, 0, 0, 0.4);
         <!-- Seção de Acompanhamento (com animação de scroll) -->
         <div id="acompanhamento" class="section-card hidden-section hidden-card">
             <h2>Aulas Assistidas</h2>
+           <!-- Gráfico de Acompanhamento -->
+            <div id="chart-container">
+                <canvas id="progress-chart"></canvas>
+            </div>
+            <hr>
             <!-- Matérias e progresso de aulas -->
             <div class="progress-item">
                 <div class="progress-info">
@@ -653,9 +910,143 @@ x 4px rgba(0, 0, 0, 0.4);
             </div>
         </div>
     </main>
-    
+
+    <!-- Adiciona a biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
-        // Função para calcular a quantidade de água necessária
+        // Dados de progresso para o gráfico
+        const data = [
+            { subject: "Redação", completed: 23, total: 70 },
+            { subject: "Matemática", completed: 15, total: 80 },
+            { subject: "Física", completed: 10, total: 50 },
+            { subject: "Química", completed: 8, total: 60 },
+            { subject: "Biologia", completed: 12, total: 65 },
+            { subject: "História", completed: 30, total: 80 },
+            { subject: "Geografia", completed: 25, total: 75 }
+        ];
+
+        // Função para renderizar o gráfico
+        function renderChart() {
+            const subjects = data.map(item => item.subject);
+            const percentages = data.map(item => (item.completed / item.total) * 100);
+            
+            const ctx = document.getElementById('progress-chart').getContext('2d');
+            
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: subjects,
+                    datasets: [{
+                        label: 'Progresso (%)',
+                        data: percentages,
+                        backgroundColor: [
+                            '#3F7996',
+                            '#1A2847',
+                            '#12335A',
+                            '#3F7996',
+                            '#1A2847',
+                            '#12335A',
+                            '#3F7996'
+                        ],
+                        borderColor: [
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.8)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.8)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return `${tooltipItem.dataset.label}: ${tooltipItem.raw.toFixed(2)}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Funções para manipular atividades diretamente no DOM
+        function renderCustomActivity(activity) {
+            const container = document.getElementById('custom-activities-container');
+            const item = document.createElement('div');
+            item.className = 'list-item';
+            
+            const checkboxId = `custom-activity-${Date.now()}`;
+            const isChecked = activity.completed ? 'checked' : '';
+
+            item.innerHTML = `
+                <input type="checkbox" id="${checkboxId}" ${isChecked}>
+                <div class="content-group">
+                    <label for="${checkboxId}"><i class="fa-solid fa-star"></i> ${activity.title}</label>
+                    <p class="description">${activity.description}</p>
+                </div>
+                <button class="delete-btn">&times;</button>
+            `;
+
+            // Adiciona o evento de exclusão ao botão
+            const deleteButton = item.querySelector('.delete-btn');
+            deleteButton.addEventListener('click', () => {
+                item.remove();
+            });
+
+            container.appendChild(item);
+        }
+
+        function saveNewActivity() {
+            const activityTitleInput = document.getElementById('activity-title');
+            const activityDescInput = document.getElementById('activity-description');
+            const validationMessage = document.getElementById('validation-message');
+            
+            const title = activityTitleInput.value.trim();
+            const description = activityDescInput.value.trim();
+
+            if (title) {
+                renderCustomActivity({ title, description, completed: false });
+                modal.style.display = 'none';
+                activityTitleInput.value = '';
+                activityDescInput.value = '';
+                validationMessage.textContent = '';
+            } else {
+                validationMessage.textContent = "O título da atividade não pode estar vazio!";
+            }
+        }
+
+        // Funções da UI
         function calcularAgua() {
             const pesoInput = document.getElementById('peso');
             const resultadoSpan = document.getElementById('resultado-agua');
@@ -668,24 +1059,7 @@ x 4px rgba(0, 0, 0, 0.4);
                 resultadoSpan.textContent = '0 L';
             }
         }
-
-        // Função para animar os elementos ao rolar a página
-        function animateOnScroll() {
-            const animatedElements = document.querySelectorAll('.hidden-card');
-            
-            animatedElements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                // Se a posição do elemento estiver dentro da área visível
-                if (elementPosition < windowHeight * 0.8) {
-                    element.classList.remove('hidden-card');
-                    element.classList.add('visible-card');
-                }
-            });
-        }
         
-        // Função para destacar o dia da semana atual no cronograma
         function highlightCurrentDay() {
             const days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
             const currentDayIndex = new Date().getDay();
@@ -698,20 +1072,17 @@ x 4px rgba(0, 0, 0, 0.4);
                 if (dayNameElement && dayNameElement.textContent === currentDayName) {
                     card.classList.add('highlight');
                 } else {
-                    card.classList.remove('highlight'); // Remove o destaque de outros dias, se houver
+                    card.classList.remove('highlight');
                 }
             });
         }
         
-        // Função para alternar a exibição das seções
         function showSection(sectionId) {
-            // Esconde todas as seções
             document.querySelectorAll('.section-card').forEach(section => {
                 section.classList.add('hidden-section');
                 section.classList.remove('visible-card');
             });
 
-            // Mostra a seção desejada
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.remove('hidden-section');
@@ -720,32 +1091,25 @@ x 4px rgba(0, 0, 0, 0.4);
             }
         }
         
-        // Função para mover a linha de destaque
         function updateNavLine(activeButton) {
             const navLine = document.getElementById('nav-line');
             const buttonRect = activeButton.getBoundingClientRect();
             const menuRect = document.querySelector('.nav-menu').getBoundingClientRect();
             
-            // Define a largura e a posição da linha
             navLine.style.width = `${buttonRect.width}px`;
             navLine.style.transform = `translateX(${buttonRect.left - menuRect.left}px)`;
         }
 
-        // Função para gerenciar os botões do menu
         function handleMenuClick(event) {
-            // Remove a classe 'active' de todos os botões
             document.querySelectorAll('.nav-menu button').forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // Adiciona a classe 'active' no botão clicado
             const clickedButton = event.target;
             clickedButton.classList.add('active');
 
-            // Move a linha de destaque
             updateNavLine(clickedButton);
 
-            // Determina qual seção mostrar com base no ID do botão
             const buttonId = clickedButton.id;
             switch (buttonId) {
                 case 'btn-atividades':
@@ -756,12 +1120,20 @@ x 4px rgba(0, 0, 0, 0.4);
                     break;
                 case 'btn-aulas':
                     showSection('acompanhamento');
+                    // Chama a função para renderizar o gráfico quando a seção de aulas for exibida
+                    renderChart();
                     break;
             }
         }
 
+        // Eventos do Modal
+        const addActivityBtn = document.getElementById('add-activity-btn');
+        const modal = document.getElementById('add-activity-modal');
+        const closeModalBtn = document.querySelector('.modal-close-btn');
+        const saveActivityBtn = document.getElementById('save-activity-btn');
+
         window.addEventListener('load', () => {
-            // Adiciona o listener para o cálculo de água após o carregamento da página
+            // Adiciona o listener para o cálculo de água
             const pesoInput = document.getElementById('peso');
             if (pesoInput) {
                 pesoInput.addEventListener('input', calcularAgua);
@@ -783,6 +1155,24 @@ x 4px rgba(0, 0, 0, 0.4);
             if(initialButton) {
                 updateNavLine(initialButton);
             }
+
+            // Eventos do Modal
+            addActivityBtn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                document.getElementById('validation-message').textContent = ''; 
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            saveActivityBtn.addEventListener('click', saveNewActivity);
         });
     </script>
 </body>
