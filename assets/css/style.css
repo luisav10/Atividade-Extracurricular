@@ -530,6 +530,12 @@ main {
     color: var(--white-color);
 }
 
+.list-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 #acompanhamento .progress-item {
     display: flex;
     flex-direction: column;
@@ -548,8 +554,26 @@ main {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+.progress-item .progress-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-item .subject-icon {
+    font-size: 1.5em;
+    color: var(--white-color);
+}
+
 .progress-item .subject {
     font-size: 1.2em;
+    font-weight: bold;
+    color: var(--white-color);
+    flex-grow: 1;
+}
+
+.progress-item .count {
+    font-size: 1em;
     font-weight: bold;
     color: var(--white-color);
 }
@@ -567,14 +591,6 @@ main {
     height: 100%;
     background: linear-gradient(90deg, #3F7996, #12335A);
     transition: width .5s ease;
-}
-
-.progress-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: .9em;
-    color: var(--white-color);
 }
 
 .delete-btn {
@@ -661,7 +677,6 @@ main {
     transition: width .5s ease;
 }
 
-
 @media (max-width: 768px) {
     .section-card {
         padding: 15px;
@@ -694,8 +709,7 @@ main {
         padding: 15px;
     }
     .activity-card label {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
     }
     .activity-card .icon {
         font-size: 1.8em;
