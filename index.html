@@ -11,7 +11,13 @@
 <body>
     <header class="site-header">
         <a href="#">&larr;</a>
-        <h1>Guia do Aluno</h1>
+        <div class="header-content">
+            <h1>Guia do Aluno</h1>
+            <div class="xp-container">
+                <i class="fa-solid fa-medal"></i>
+                <span id="xp-counter">0 XP</span>
+            </div>
+        </div>
     </header>
     <hr class="header-separator">
     <div class="nav-menu">
@@ -100,33 +106,118 @@
         <div id="cronograma-semanal" class="section-card hidden-section hidden-card">
             <h2>Cronograma Semanal</h2>
             <div id="cronograma">
-                <div class="day-card">
+                <div class="day-card" data-day="Segunda">
                     <h3>Segunda</h3>
-                    <p>Matemática, Física</p>
+                    <div class="list-items-container">
+                        <div class="activity-card">
+                            <input type="checkbox" id="segunda-matematica" data-subject="Matemática">
+                            <label for="segunda-matematica">
+                                <span class="activity-title">Matemática</span>
+                            </label>
+                        </div>
+                        <div class="activity-card">
+                            <input type="checkbox" id="segunda-fisica" data-subject="Física">
+                            <label for="segunda-fisica">
+                                <span class="activity-title">Física</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="day-card">
+                <div class="day-card" data-day="Terça">
                     <h3>Terça</h3>
-                    <p>Biologia, Química</p>
+                    <div class="list-items-container">
+                        <div class="activity-card">
+                            <input type="checkbox" id="terca-biologia" data-subject="Biologia">
+                            <label for="terca-biologia">
+                                <span class="activity-title">Biologia</span>
+                            </label>
+                        </div>
+                        <div class="activity-card">
+                            <input type="checkbox" id="terca-quimica" data-subject="Química">
+                            <label for="terca-quimica">
+                                <span class="activity-title">Química</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="day-card">
+                <div class="day-card" data-day="Quarta">
                     <h3>Quarta</h3>
-                    <p>Redação, Gramática</p>
+                    <div class="list-items-container">
+                        <div class="activity-card">
+                            <input type="checkbox" id="quarta-redacao" data-subject="Redação">
+                            <label for="quarta-redacao">
+                                <span class="activity-title">Redação</span>
+                            </label>
+                        </div>
+                        <div class="activity-card">
+                            <input type="checkbox" id="quarta-gramatica" data-subject="Gramática">
+                            <label for="quarta-gramatica">
+                                <span class="activity-title">Gramática</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="day-card">
+                <div class="day-card" data-day="Quinta">
                     <h3>Quinta</h3>
-                    <p>História, Geografia</p>
+                    <div class="list-items-container">
+                        <div class="activity-card">
+                            <input type="checkbox" id="quinta-historia" data-subject="História">
+                            <label for="quinta-historia">
+                                <span class="activity-title">História</span>
+                            </label>
+                        </div>
+                        <div class="activity-card">
+                            <input type="checkbox" id="quinta-geografia" data-subject="Geografia">
+                            <label for="quinta-geografia">
+                                <span class="activity-title">Geografia</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="day-card">
+                <div class="day-card" data-day="Sexta">
                     <h3>Sexta</h3>
-                    <p>Literatura, Filosofia</p>
+                    <div class="list-items-container">
+                        <div class="activity-card">
+                            <input type="checkbox" id="sexta-literatura" data-subject="Literatura">
+                            <label for="sexta-literatura">
+                                <span class="activity-title">Literatura</span>
+                            </label>
+                        </div>
+                        <div class="activity-card">
+                            <input type="checkbox" id="sexta-filosofia" data-subject="Filosofia">
+                            <label for="sexta-filosofia">
+                                <span class="activity-title">Filosofia</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="day-card">
+                <div class="day-card" data-day="Sábado">
                     <h3>Sábado</h3>
-                    <p>Revisão Geral</p>
+                    <div class="list-items-container">
+                        <div class="activity-card">
+                            <input type="checkbox" id="sabado-revisao" data-subject="Revisão Geral">
+                            <label for="sabado-revisao">
+                                <span class="activity-title">Revisão Geral</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="day-card">
+                <div class="day-card" data-day="Domingo">
                     <h3>Domingo</h3>
-                    <p>Simulado, Descanso</p>
+                    <div class="list-items-container">
+                        <div class="activity-card">
+                            <input type="checkbox" id="domingo-simulado" data-subject="Simulado">
+                            <label for="domingo-simulado">
+                                <span class="activity-title">Simulado</span>
+                            </label>
+                        </div>
+                        <div class="activity-card">
+                            <input type="checkbox" id="domingo-descanso" data-subject="Descanso">
+                            <label for="domingo-descanso">
+                                <span class="activity-title">Descanso</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,132 +234,237 @@
                     <div class="progress-info">
                         <i class="fa-solid fa-pen-nib subject-icon"></i>
                         <span class="subject">Redação</span>
-                        <span class="count">23/70</span>
+                        <span class="count" id="count-Redação">0/70</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 32.85%;"></div>
+                        <div class="progress" style="width: 0%;" id="progress-Redação"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-info">
                         <i class="fa-solid fa-calculator subject-icon"></i>
                         <span class="subject">Matemática</span>
-                        <span class="count">15/80</span>
+                        <span class="count" id="count-Matemática">0/80</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 18.75%;"></div>
+                        <div class="progress" style="width: 0%;" id="progress-Matemática"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-info">
                         <i class="fa-solid fa-atom subject-icon"></i>
                         <span class="subject">Física</span>
-                        <span class="count">10/50</span>
+                        <span class="count" id="count-Física">0/50</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 20%;"></div>
+                        <div class="progress" style="width: 0%;" id="progress-Física"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-info">
                         <i class="fa-solid fa-flask subject-icon"></i>
                         <span class="subject">Química</span>
-                        <span class="count">8/60</span>
+                        <span class="count" id="count-Química">0/60</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 13.33%;"></div>
+                        <div class="progress" style="width: 0%;" id="progress-Química"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-info">
                         <i class="fa-solid fa-dna subject-icon"></i>
                         <span class="subject">Biologia</span>
-                        <span class="count">12/65</span>
+                        <span class="count" id="count-Biologia">0/65</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 18.46%;"></div>
+                        <div class="progress" style="width: 0%;" id="progress-Biologia"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-info">
                         <i class="fa-solid fa-scroll subject-icon"></i>
                         <span class="subject">História</span>
-                        <span class="count">30/80</span>
+                        <span class="count" id="count-História">0/80</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 37.5%;"></div>
+                        <div class="progress" style="width: 0%;" id="progress-História"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-info">
                         <i class="fa-solid fa-globe subject-icon"></i>
                         <span class="subject">Geografia</span>
-                        <span class="count">25/75</span>
+                        <span class="count" id="count-Geografia">0/75</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress" style="width: 33.33%;"></div>
+                        <div class="progress" style="width: 0%;" id="progress-Geografia"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <i class="fa-solid fa-pen-nib subject-icon"></i>
+                        <span class="subject">Gramática</span>
+                        <span class="count" id="count-Gramática">0/50</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;" id="progress-Gramática"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <i class="fa-solid fa-book subject-icon"></i>
+                        <span class="subject">Literatura</span>
+                        <span class="count" id="count-Literatura">0/45</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;" id="progress-Literatura"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <i class="fa-solid fa-user-tie subject-icon"></i>
+                        <span class="subject">Filosofia</span>
+                        <span class="count" id="count-Filosofia">0/30</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;" id="progress-Filosofia"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <i class="fa-solid fa-scroll subject-icon"></i>
+                        <span class="subject">Revisão Geral</span>
+                        <span class="count" id="count-Revisão Geral">0/15</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;" id="progress-Revisão Geral"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <i class="fa-solid fa-edit subject-icon"></i>
+                        <span class="subject">Simulado</span>
+                        <span class="count" id="count-Simulado">0/10</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;" id="progress-Simulado"></div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
-        const data = [{
-            subject: "Redação",
-            completed: 23,
-            total: 70
-        }, {
-            subject: "Matemática",
-            completed: 15,
-            total: 80
-        }, {
-            subject: "Física",
-            completed: 10,
-            total: 50
-        }, {
-            subject: "Química",
-            completed: 8,
-            total: 60
-        }, {
-            subject: "Biologia",
-            completed: 12,
-            total: 65
-        }, {
-            subject: "História",
-            completed: 30,
-            total: 80
-        }, {
-            subject: "Geografia",
-            completed: 25,
-            total: 75
-        }];
+// Mapeamento de assuntos e totais
+        const subjectData = {
+            "Redação": 70,
+            "Matemática": 80,
+            "Física": 50,
+            "Química": 60,
+            "Biologia": 65,
+            "História": 80,
+            "Geografia": 75,
+            "Gramática": 50,
+            "Literatura": 45,
+            "Filosofia": 30,
+            "Revisão Geral": 15,
+            "Simulado": 10
+        };
 
-        function updateProgressCounter() {
-            const checkboxes = document.querySelectorAll('#checklist .activity-card input[type="checkbox"]');
-            const totalTasks = checkboxes.length;
-            const completedTasks = document.querySelectorAll('#checklist .activity-card input[type="checkbox"]:checked').length;
-            const counterText = document.getElementById('counter-text');
-            const progressBar = document.getElementById('progress-counter-bar');
-            
-            counterText.textContent = `${completedTasks} de ${totalTasks}`;
-            const percentage = (totalTasks > 0) ? (completedTasks / totalTasks) * 100 : 0;
-            progressBar.style.width = `${percentage}%`;
+        const localStorageKey = 'aulaProgress';
+        const localStorageXpKey = 'totalXp';
+        const xpPerTask = 5;
+
+        // Função para carregar o progresso do LocalStorage
+        function loadProgress() {
+            const storedProgress = localStorage.getItem(localStorageKey);
+            return storedProgress ? JSON.parse(storedProgress) : {};
         }
 
+        // Função para salvar o progresso no LocalStorage
+        function saveProgress(progress) {
+            localStorage.setItem(localStorageKey, JSON.stringify(progress));
+        }
+
+        // Função para carregar o XP do LocalStorage
+        function loadXp() {
+            const storedXp = localStorage.getItem(localStorageXpKey);
+            return storedXp ? parseInt(storedXp) : 0;
+        }
+
+        // Função para salvar o XP no LocalStorage
+        function saveXp(xp) {
+            localStorage.setItem(localStorageXpKey, xp);
+        }
+
+        // Função para atualizar a barra de progresso e o contador de XP
+        function updateProgress(subject, isChecked) {
+            const progress = loadProgress();
+            if (!progress[subject]) {
+                progress[subject] = 0;
+            }
+
+            if (isChecked) {
+                if (progress[subject] < subjectData[subject]) {
+                    progress[subject]++;
+                }
+            } else {
+                if (progress[subject] > 0) {
+                    progress[subject]--;
+                }
+            }
+            saveProgress(progress);
+            renderProgressBars();
+            renderChart();
+        }
+
+        // Função para renderizar as barras de progresso
+        function renderProgressBars() {
+            const progress = loadProgress();
+            const subjects = Object.keys(subjectData);
+
+            subjects.forEach(subject => {
+                const completed = progress[subject] || 0;
+                const total = subjectData[subject];
+                const percentage = (completed / total) * 100;
+                
+                const countSpan = document.getElementById(`count-${subject}`);
+                if (countSpan) {
+                    countSpan.textContent = `${completed}/${total}`;
+                }
+                const progressBar = document.getElementById(`progress-${subject}`);
+                if (progressBar) {
+                    progressBar.style.width = `${percentage}%`;
+                }
+            });
+        }
+        
+        let myChart;
+
+        // Função para renderizar o gráfico
         function renderChart() {
-            const subjects = data.map(item => item.subject);
-            const percentages = data.map(item => (item.completed / item.total) * 100);
+            const progress = loadProgress();
+            const subjects = Object.keys(subjectData);
+            const percentages = subjects.map(subject => {
+                const completed = progress[subject] || 0;
+                const total = subjectData[subject];
+                return (completed / total) * 100;
+            });
+
             const ctx = document.getElementById('progress-chart').getContext('2d');
-            const chart = new Chart(ctx, {
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: subjects,
                     datasets: [{
                         label: 'Progresso (%)',
                         data: percentages,
-                        backgroundColor: ['#3F7996', '#1A2847', '#12335A', '#3F7996', '#1A2847', '#12335A', '#3F7996'],
-                        borderColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
+                        backgroundColor: ['#3F7996', '#1A2847', '#12335A', '#3F7996', '#1A2847', '#12335A', '#3F7996', '#1A2847', '#12335A', '#3F7996', '#1A2847', '#12335A'],
+                        borderColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
                         borderWidth: 1
                     }]
                 },
@@ -302,13 +498,37 @@
                         tooltip: {
                             callbacks: {
                                 label: function(tooltipItem) {
-                                    return `${tooltipItem.dataset.label}: ${tooltipItem.raw.toFixed(2)}%`;
+                                    return `${tooltipItem.label}: ${tooltipItem.raw.toFixed(2)}%`;
                                 }
                             }
                         }
                     }
                 }
             });
+        }
+
+        // Função para atualizar o contador de XP
+        function updateXp(isGain) {
+            let currentXp = loadXp();
+            if (isGain) {
+                currentXp += xpPerTask;
+            } else {
+                currentXp = Math.max(0, currentXp - xpPerTask);
+            }
+            saveXp(currentXp);
+            document.getElementById('xp-counter').textContent = `${currentXp} XP`;
+        }
+        
+        function updateProgressCounter() {
+            const checkboxes = document.querySelectorAll('#checklist .activity-card input[type="checkbox"]');
+            const totalTasks = checkboxes.length;
+            const completedTasks = document.querySelectorAll('#checklist .activity-card input[type="checkbox"]:checked').length;
+            const counterText = document.getElementById('counter-text');
+            const progressBar = document.getElementById('progress-counter-bar');
+            
+            counterText.textContent = `${completedTasks} de ${totalTasks}`;
+            const percentage = (totalTasks > 0) ? (completedTasks / totalTasks) * 100 : 0;
+            progressBar.style.width = `${percentage}%`;
         }
 
         function renderCustomActivity(activity) {
@@ -332,7 +552,10 @@
                 updateProgressCounter();
             });
             const checkbox = item.querySelector('input[type="checkbox"]');
-            checkbox.addEventListener('change', updateProgressCounter);
+            checkbox.addEventListener('change', () => {
+                updateProgressCounter();
+                // A atividade personalizada não concede XP
+            });
             container.appendChild(item);
         }
 
@@ -370,17 +593,29 @@
             }
         }
 
+        // Modificando a função para mostrar/ocultar e desabilitar checkboxes
         function highlightCurrentDay() {
             const days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
             const currentDayIndex = new Date().getDay();
             const currentDayName = days[currentDayIndex];
             const dayCards = document.querySelectorAll('#cronograma .day-card');
+            
             dayCards.forEach(card => {
                 const dayNameElement = card.querySelector('h3');
-                if (dayNameElement && dayNameElement.textContent === currentDayName) {
+                const checkboxes = card.querySelectorAll('input[type="checkbox"]');
+                
+                if (dayNameElement && dayNameElement.textContent.includes(currentDayName)) {
                     card.classList.add('highlight');
+                    checkboxes.forEach(cb => {
+                        cb.style.display = 'block';
+                        cb.disabled = false;
+                    });
                 } else {
                     card.classList.remove('highlight');
+                    checkboxes.forEach(cb => {
+                        cb.style.display = 'none';
+                        cb.disabled = true;
+                    });
                 }
             });
         }
@@ -467,8 +702,27 @@
             const activitiesContainer = document.getElementById('activities-grid');
             activitiesContainer.addEventListener('change', updateProgressCounter);
             
+            // Adiciona listeners para os checkboxes do cronograma
+            document.querySelectorAll('#cronograma input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', (event) => {
+                    const subject = event.target.dataset.subject;
+                    updateProgress(subject, event.target.checked);
+                    updateXp(event.target.checked);
+                });
+            });
+
+            // Adiciona listeners para os checkboxes do checklist
+            document.querySelectorAll('#checklist .activity-card:not(.custom-card) input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', (event) => {
+                    updateProgressCounter();
+                    updateXp(event.target.checked);
+                });
+            });
+            
             // Atualiza o contador na primeira carga da página
             updateProgressCounter();
+            renderProgressBars();
+            updateXp(false); // apenas para exibir o XP salvo
         });
     </script>
 </body>
